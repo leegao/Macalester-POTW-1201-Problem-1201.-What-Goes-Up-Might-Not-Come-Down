@@ -1,8 +1,8 @@
 \subsection*{Values}
 
-The problem prompt asks for $P^0_1 = \frac{\bar\gamma}{\sqrt{5}}\left(1 + \frac{1+\bar\gamma^2}{1 - \bar\gamma^2}\right) = \frac{1}{\sqrt{5}}\frac{2}{\sqrt{5}} = \boxed{\frac{2}{5}}$, the probability of succeeding if we go towards $(1,1)$.
+The problem prompt asks for $P^1_1 = \frac{\bar\gamma}{\sqrt{5}}\left(1 + \frac{1+\bar\gamma^2}{1 - \bar\gamma^2}\right) = \frac{1}{\sqrt{5}}\frac{2}{\sqrt{5}} = \boxed{\frac{2}{5}}$, the probability of succeeding if we start at $(1,1)$.
 
-Similarly, we can also compute $P_0^0 = \frac13 + \frac23 \frac25 = \boxed{\frac35}$ the probability of succeeding if we start at the origin. We can verify these values with some montecarlos testing. For example, we can simulate a run using the following python code:
+Similarly, we can also compute $P_0^1 = \frac13 + \frac23 \frac25 = \boxed{\frac35}$ the probability of succeeding if we start at $(1,0)$. We can verify these values with some monte-carlos testing. For example, we can simulate a run using the following python code:
 
 \begin{verbatim}
 def simulate(x):
