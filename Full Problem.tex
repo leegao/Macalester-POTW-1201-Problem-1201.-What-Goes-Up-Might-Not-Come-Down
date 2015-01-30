@@ -1,0 +1,33 @@
+\subsubsection{Onto the real problem}
+
+Having seen how we can solve the relaxed toy problem, let's now turn our attention to the full problem at hand. Now, let $P^{1}_n = \bar\gamma^n$ be the probability that a particle on the first row will be able to random walk to the $0^{th}$ column. Next, let $P^{0}_n$ be the probability that a particle on the bottom row at column $n$ will be able to random walk to the $0^{th}$ column of the first row. Our problem reduces down to finding an expression for $P^0_n$.
+
+Now, let $\hat k$ be the event that a particle walks to a final displacement of $k$ horizontal steps and immediately takes a vertical step. and let $s$ be the event that we successfully found the target point, then we know that starting from $n$:
+$$
+P^0_n[s] = \sum_{k \in \mathbb{Z}} P^1[s \mid \hat k] \times P_n[\hat k]
+$$
+where $P^0_n[s] = P^0_n$ is the likelihood of finding $(1,0)$ starting at $(0,n)$; $P^1[s \mid \hat k]$ is the likelihood of succeeding given that we climbed up to the point $(1,k)$ at some point; and $P_n[\hat k]$ is the probability that a particle starting at $n$ climbs up at $k$. It follows that
+$$
+P^1[s \mid \hat k] = P^1_{|k|} = \bar\gamma^{|k|}
+$$
+but what of $P_n[\hat k]$?
+
+In order to describe the behavior of ascent, let us again break it into a one-dimensional scenario. Suppose I start off at $k$, and I want to know the probability $\hat P_k$ that I will random-walk to the origin and climb up there. As per the relaxed problem, we still have $\hat P_k = 3 \hat P_{k-1} - \hat P_{k-2}$ when $k \ne 0$. However, if we're at the origin, then we can either go up with probability $\frac13$, or we can go to either the left or the right side. Notice that the probabilities are symmetric about the origin, so this gives us ($k \ge 0$, recall that $\hat P_{-k} = \hat P_k$):
+$$
+\hat P_k = \begin{cases}
+\frac{1 + 2\hat P_1}{3} & \text{when }k = 0 \\
+3 \hat P_{k-1} - \hat P_{k-2} & \text{otherwise}
+\end{cases} ~~~~ \text{and} ~~~~ \lim_{k\to\infty} \hat P_k = 0
+$$
+This again suggests that $\hat P_k = \nu \bar\gamma^k$ and that (I.H. the induction hypothesis)
+$$
+P_0 = \nu = \frac13 + \frac23\hat P_1 = \frac13 + \frac23\underbrace{\nu \bar\gamma}_{\text{I.H.}}
+$$
+so that $\nu = \frac1{\sqrt{5}}$ and $\hat P_k = \frac{\bar\gamma^n}{\sqrt{5}}$.
+
+Finally, this means that
+\begin{align*}
+P^0_n &= \sum_{k\in\mathbb{Z}} \hat P_{|n-k|} P^1_{|k|} \\
+&=\sum_{k\in\mathbb{Z}} \frac{\bar\gamma^{|n-k|}\bar\gamma^{|k|}}{\sqrt{5}} \\
+&= \boxed{\frac{\bar\gamma^n}{\sqrt{5}}\left(n + \frac{1 + \bar\gamma^2}{1 - \bar\gamma^2}\right)}
+\end{align*}
