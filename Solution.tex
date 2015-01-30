@@ -13,6 +13,13 @@ P_n = \begin{cases}
 $$
 This reduces to the system where $P_0 = 1$ and $P_n = 3P_{n-1} - P_{n-2}$. The characteristic of this recurrence ($x^2 - 3x + 1$) has roots $\gamma,\bar\gamma = \frac{3 \pm \sqrt5}{2}$, which suggests that $P_n$ will necessarily be in the form of
 $$
-P_n = \alpha \gamma^n + \beta \bar\gamma^n ~~~~ P_0 = 1,
+P_n = \alpha \gamma^n + \beta \bar\gamma^n, ~~~~ P_0 = 1
 $$
 for some $\alpha, \beta \in \mathbb{R}$.
+
+Now, we have one initial condition, which is only enough to establish that $\beta = 1 - \alpha$. We need another piece of information in order to solve this system. It turns out that we can use the argument that this probability system must be ``stable in the limit'' to find another boundary condition:
+
+\textbf{Lemma: (Stability)}$$
+\lim_{n\to\infty} P_n = 3P_n - P_n \implies \lim_{n\to\infty} P_n = 0 ~~~~ \square
+$$
+
