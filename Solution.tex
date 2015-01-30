@@ -1,0 +1,18 @@
+\subsection*{Solution}
+
+\subsubsection*{An easy relaxation}
+
+To solve this problem, let's consider an easier class of questions first. Suppose that we have a one-dimensional number line, and you start at some arbitrary point $n$. You can either move left, right, or up. What is the probability that you will hit the origin?
+
+Now, if we're at point $n$, one of two things must happen. Either $n = 0$, in which case we know that we can get to the origin with $100\%$ probability, or $n \ne 0$. Let $P_n$ be the probability that we can reach the origin from $n$, then inductively:
+$$
+P_n = \begin{cases}
+1 & n = 0 \\
+\frac13 \times 0 + \frac13 \times P_{n-1} + \frac13 \times P_{n+1} & \text{otherwise}
+\end{cases}
+$$
+This reduces to the system where $P_0 = 1$ and $P_n = 3P_{n-1} - P_{n-2}$. The characteristic of this recurrence ($x^2 - 3x + 1$) has roots $\gamma,\bar\gamma = \frac{3 \pm \sqrt5}{2}$, which suggests that $P_n$ will necessarily be in the form of
+$$
+P_n = \alpha \gamma^n + \beta \bar\gamma^n ~~~~ P_0 = 1,
+$$
+for some $\alpha, \beta \in \mathbb{R}$.
