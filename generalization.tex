@@ -1,3 +1,11 @@
 \section{Generalization}
 
+In fact, without loss of generality, we can compute the probability of hitting the origin when we start at any $(n,m)$, where $m \ge 0$. This can be treated by the inductive system:
+$$
+P^m_n = \begin{cases}
+\bar\gamma^n & \text{if } m = 0 \\
+\sum_{k \in \mathbb{Z}} \frac{\bar\gamma^{|n-k|}}{\sqrt{5}} P^{m-1}_k & \text{otherwise}
+\end{cases}
+$$
 
+This can probably yield a algebraic solution if we break the absolute sum into smaller piece, but for now it suffices to just be able to compute this for any $(n,m)$.
