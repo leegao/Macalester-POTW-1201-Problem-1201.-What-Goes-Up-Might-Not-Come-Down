@@ -2,7 +2,6 @@
 
 Having seen how we can solve the relaxed toy problem, let's now turn our attention to the full problem at hand. to make it easier to work with later on, let's assume that we start off at some arbitrary point $(n,1)$ and we're going down towards the origin. First, let $P^{0}_n = \bar\gamma^n$ be the probability that a particle on the $x$-axis will be able to random walk to the origin. Next, let $P^{1}_n$ be the probability that a particle on the next row at column $n$ will be able to random walk to the origin $(0,0)$. Our problem reduces down to finding an expression for $P^1_n$.
 
-
 Now, let $\hat k$ be the event that a particle walks to a final displacement of $k$ horizontal steps and immediately takes a vertical step. and let $s$ be the event that we successfully found the target point, then we know that starting from $n$:
 $$
 P^1_n[s] = \sum_{k \in \mathbb{Z}} P^0[s \mid \hat k] \times P_n[\hat k]
